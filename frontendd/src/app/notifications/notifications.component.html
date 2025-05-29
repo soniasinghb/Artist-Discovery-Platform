@@ -1,0 +1,6 @@
+<div class="notifications-list position-fixed top-2 end-0 m-2" style="z-index:100">
+    <div *ngFor="let notif of notificationsList" class="alert alert-{{notif.style}} alert-dismissible" role="alert">
+        {{notif.message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>

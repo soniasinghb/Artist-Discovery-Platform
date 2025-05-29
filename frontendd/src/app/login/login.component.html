@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center align-items-center min-vh-50 py-4">
+    <div class="login-container w-100 text-center p-4">
+        <h2 class="mb-4 text-start">Login</h2>
+        <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div class="mb-3 text-start">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" [ngClass]="{'is-invalid': loginForm.get('emailid')?.invalid && loginForm.get('emailid')?.touched || loginForm.get('emailid')?.errors?.['apiError']}"
+                id="emailid" placeholder="Enter email" formControlName="emailid">
+                <div class="invalid-feedback">
+                    <span *ngIf="loginForm.get('emailid')?.errors?.['required']">Email is required.</span>
+                    <span *ngIf="loginForm.get('emailid')?.errors?.['pattern']">Email must be valid.</span>
+                </div>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" [ngClass]="{'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}" id="password" placeholder="Password" formControlName="password">
+                <div class="invalid-feedback">
+                    <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</span>
+                    <span *ngIf="loginForm.get('password')?.errors?.['apiError']">{{ loginForm.get('password')?.errors?.['apiError'] }}</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" (click)="onLogin()" [disabled]="loginForm.invalid">Log In</button>
+        </form>
+    </div>
+</div>
+<div class="text-center">
+    <span>Don't have an account yet? <a href="register">Register</a></span>
+</div>

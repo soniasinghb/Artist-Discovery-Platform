@@ -1,0 +1,23 @@
+body,html{
+    height: 100%;
+    margin: 0;
+}
+.searchbtn:not(:disabled){
+    background-color: rgb(21,85,156);
+    color: white;
+}
+
+.searchbtn:disabled{
+    background-color: rgba(21,85,156, 0.98);
+    color: white;
+}
+
+.clearbtn:not(:disabled){
+    background-color: rgba(107,117,124,255);
+    color: white;
+}
+
+.clearbtn:disabled{
+    background-color: rgba(107,117,124,255);
+    color: white;
+}

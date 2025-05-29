@@ -1,0 +1,30 @@
+<div *ngIf="!favsArrival" class="d-flex justify-content-center">
+    <div class="spinner-border m-4 text-primary" role="status" style="border-width: 0.19rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+<div *ngIf="favsArrival && favArtists.length > 0" class="d-flex py-3 flex-wrap gap-3" loading="eager">
+<div *ngFor="let artist of favArtists" class="position-relative rounded overflow-hidden" style="width: 320px; height: 160px;">
+<div class="card position-absolute top-0 start-0 w-100 h-100" [ngStyle]="{ 'background-image': 'url(' + artist.artistImg + ')' }"
+    style="background-size: cover; background-position: center; filter: blur(6px); z-index: 1;">
+</div>
+<!-- (click)="gotoArtistInfo(artist.artistId)" -->
+<div class="card-body position-absolute top-0 start-0 w-100 h-100 d-flex flex-column text-white p-3"
+    style="background: rgba(0, 0, 0, 0.5); z-index: 2; cursor: pointer;">
+<div class="non-remove" (click)="gotoArtistInfo(artist.artistId)">
+<h3 class="fs-4 text-start m-0 py-1">{{ artist.artistName }}</h3>
+<p class="text-start m-0 small">{{ artist.artistBday }}-{{artist.artistDday}}</p>
+<p class="text-start m-0 small">{{ artist.artistNationality }}</p>
+<p class="position-absolute bottom-0 text-white small">{{ formatTime(timeDiff[artist.artistId]) }}</p>
+</div>
+<span (click)="removeFav(artist.artistId)" class="position-absolute bottom-0 end-0 text-white m-3 small" style="text-decoration: underline; cursor: pointer;">Remove</span> 
+</div>
+</div>
+</div>
+
+<div *ngIf="favsArrival && favArtists.length === 0" class="d-flex py-3 flex-wrap gap-3">
+    <div class="alert alert-danger w-100" role="alert">
+        No Favorite Artists.
+      </div>
+    </div>

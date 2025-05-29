@@ -1,0 +1,42 @@
+<nav class="navbar fs-6 navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="font-size: 17px;">Artist Search</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end w-100" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-pills ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/" routerLinkActive="active">Search</a>
+          </li>
+
+          <ng-container *ngIf = "!isUserLoggedIn">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf = "isUserLoggedIn">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/favoritesComp" routerLinkActive="active">Favorites</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{{gravatarImg}}" alt="gravatar" style="height: 20px; width: 20px;">
+                  {{userName}}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><button type="submit" class="dropdown-item btn-primary w-100" style="color: rgb(207, 3, 3);" routerLink="/" (click)="onDeleteAcc()">Delete Account</button></li>
+                  <li><button type="submit" class="dropdown-item btn-primary w-100" style="color: rgb(1, 1, 94);" routerLink="/" (click)="onLogOut()">Log Out</button></li>
+                </ul>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </nav>

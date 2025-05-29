@@ -1,0 +1,22 @@
+<div class="container-fluid py-3 d-flex flex-column align-items-center" style="overflow-y: auto; margin-bottom: 0;">
+<div class="w-100 d-flex align-items-center">
+<div class="input-group">
+    <input type="text" [formControl]="searchInput" class="form-control" placeholder="Please enter an artist name." (keydown.enter)="onSearch()" aria-label="Recipient's username with two button addons">
+    <button class="btn btn-outline-secondary searchbtn" [disabled]="!searchInput.value" type="button" (click)="onSearch()">
+        Search <div *ngIf="spinner" class="spinner-border spinner-border-sm text-light" style="border-width: 0.15rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+        </div>
+    </button>
+    <button class="btn btn-outline-secondary clearbtn" [disabled]="!searchInput.value" (click)="onClear()" type="button">Clear</button>
+</div>
+</div>
+</div>
+
+<div *ngIf="searchClicked">
+    <app-artists [artist]="searchInput.value!" (resultArrived)="onResultArrived()"></app-artists>
+</div>
+
+<div *ngIf="favartistid.length>0">
+    <app-artist-information [activeArtistObj]="{}" [activeArtistId]="favartistid"></app-artist-information>
+</div>
+

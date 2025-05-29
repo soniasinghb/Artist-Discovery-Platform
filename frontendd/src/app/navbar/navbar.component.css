@@ -1,0 +1,19 @@
+.nav-link.active{
+    background-color: rgba(1,80,147,255);
+    color: white;
+    cursor: pointer;
+    border-radius: 7px;
+}
+.nav-link, .btn {
+    font-size: 13px; 
+}
+
+.dropdown-menu {
+    font-size: 13px;
+    padding: 0;
+}
+
+.dropdown-item{
+    border: 1px solid rgba(0,0,0,0.1);
+    right: inherit;
+}

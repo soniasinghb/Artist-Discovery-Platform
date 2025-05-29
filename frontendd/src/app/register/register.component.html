@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center align-items-center min-vh-50 py-4">
+    <div class="register-container text-center w-100 text-center p-4">
+        <h2 class="mb-4 text-start">Register</h2>
+        <form class="needs-validation" [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+            <div class="mb-3 text-start">
+                <label class="form-label">Fullname</label>
+                <input type="text" class="form-control" [ngClass]="{'is-invalid': registrationForm.get('fullname')?.invalid && registrationForm.get('fullname')?.touched}" id="fullname" placeholder="John Doe"  formControlName="fullname">
+                <div class="invalid-feedback">
+                    <span>Fullname is required.</span>
+                </div>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" [ngClass]="{'is-invalid': registrationForm.get('emailid')?.invalid && registrationForm.get('emailid')?.touched || registrationForm.get('emailid')?.errors?.['apiError']}"
+                id="emailid" placeholder="Enter email" formControlName="emailid">
+                <div class="invalid-feedback">
+                    <span *ngIf="registrationForm.get('emailid')?.errors?.['required']">Email is required.</span>
+                    <span *ngIf="registrationForm.get('emailid')?.errors?.['pattern']">Please enter a valid email address.</span>
+                    <span *ngIf="registrationForm.get('emailid')?.errors?.['apiError']">{{ registrationForm.get('emailid')?.errors?.['apiError'] }}</span>
+                </div>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" [ngClass]="{'is-invalid': registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched}" id="password" placeholder="Password" formControlName="password">
+                <div class="invalid-feedback">
+                    <span *ngIf="registrationForm.get('password')?.errors?.['required']">Password is required.</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="registrationForm.invalid">Register</button>
+        </form>
+    </div>
+</div>
+<div class="text-center">
+    <span>Already have an account? <a href="login">Login</a></span>
+</div>

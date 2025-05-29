@@ -1,0 +1,21 @@
+.footer{
+    bottom: 0;
+    font-size: small;
+    font-family: Helvetica;
+    color: white;
+    text-align: center;
+    background-color: rgb(7, 7, 69);
+    padding: 10px;
+    flex-shrink: 0;
+    z-index: 10;
+}
+.footer .footer-img {       
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.footer-wrapper{
+    padding-top: 6%;
+    margin-top: 30px;
+}

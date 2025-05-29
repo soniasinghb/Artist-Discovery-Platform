@@ -1,0 +1,65 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: auto;      
+}
+.nav-pills .nav-link.active {
+    background-color: rgb(21,85,156) !important;
+  }
+.biography {
+    text-align: justify;
+}
+.detailsCard {
+    background-color: rgba(19,41,56,255);
+}   
+.artworks-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1%;
+}
+.modals-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 2%;
+}
+.artworkk{
+    width: 13rem;
+}
+.card-img-top{
+    height: 15rem;
+}
+@media(max-width:576px){
+    .artworks-cards{
+        display: flex;
+        flex-direction: column;
+        gap: 15%;
+    }
+    .modals-cards{
+        display: flex;
+        flex-direction: column;
+        gap: 15%;
+    }
+    .artworkk{
+        width: 98%;
+        padding-bottom: 0%;
+    }
+    .artwork-card{
+        margin-bottom: 2%;
+    }
+    .card-img-top{
+        height: 20rem;
+    }
+}
+
+.btn.btn-light:active, .btn.btn-light:hover{
+    background-color:  rgb(21, 82, 152);
+}
+.star-icon-sim {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    z-index: 10;
+    background-color: rgb(21, 85, 156);
+    border-radius: 50%;
+    padding: 7px;
+}
